@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { DrizzleProvider } from 'drizzle-react'
+import { DrizzleProvider } from 'drizzle-react';
 import Loading from './containers/Loading';
 import Browser from './components/Browser';
 import './App.css';

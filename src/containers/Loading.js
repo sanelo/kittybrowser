@@ -8,11 +8,14 @@ class Loading extends Component {
 
   render() {
     if (window.web3 === undefined || this.props.web3.status === 'failed') {
-      return(
+      return (
         // Display a web3 warning.
         <div className="warning">
           <p>This browser has no connection to the Ethereum network. </p>
-          <p>Please use the Chrome/FireFox extension MetaMask, or dedicated Ethereum browsers Mist or Parity.</p>
+          <p>
+            Please use the Chrome/FireFox extension MetaMask, or dedicated
+            Ethereum browsers Mist or Parity.
+          </p>
         </div>
       );
     }
@@ -22,22 +25,24 @@ class Loading extends Component {
       return Children.only(this.props.children);
     }
 
-    return(
+    return (
       // Display a loading indicator.
       <div className="loading">
         <h1>Loading dapp...</h1>
-        <img src="https://www.cryptokitties.co/images/loader.gif" width="120" alt="loading" />
+        <img
+          src="https://www.cryptokitties.co/images/loader.gif"
+          width="120"
+          alt="loading"
+        />
       </div>
     );
   }
-};
+}
 
 // May still need this even with data function to refresh component on updates for this contract.
-const mapStateToProps = state => {
-  return {
-    drizzleStatus: state.drizzleStatus,
-    web3: state.web3,
-  };
-}
+const mapStateToProps = state => ({
+  drizzleStatus: state.drizzleStatus,
+  web3: state.web3
+});
 
 export default drizzleConnect(Loading, mapStateToProps);
